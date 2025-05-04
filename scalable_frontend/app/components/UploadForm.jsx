@@ -35,37 +35,25 @@ export default function UploadForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
-      <div className="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full space-y-6 border border-gray-200">
-        <h2 className="text-3xl font-bold text-gray-800 text-center">Upload Media</h2>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">Select File</label>
-          <input
-            type="file"
-            onChange={(e) => setFile(e.target.files?.[0] || null)}
-            className="w-full border border-gray-300 rounded-lg p-2 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          />
-        </div>
-
+    <div className="mt-10">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Creator Upload</h2>
+      <div className="space-y-3">
+        <input
+          type="file"
+          onChange={(e) => setFile(e.target.files?.[0] || null)}
+          className="block w-full p-2 border rounded"
+        />
         {["title", "caption", "location", "people"].map(field => (
-          <div key={field}>
-            <label className="block text-sm font-medium text-gray-600 mb-1">
-              {field.charAt(0).toUpperCase() + field.slice(1)}
-            </label>
-            <input
-              type="text"
-              placeholder={`Enter ${field}`}
-              value={meta[field]}
-              onChange={e => setMeta({ ...meta, [field]: e.target.value })}
-              className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          <input
+            key={field}
+            placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+            className="w-full border p-2 rounded"
+            onChange={e => setMeta({ ...meta, [field]: e.target.value })}
+          />
         ))}
-
         <button
           onClick={handleUpload}
-          className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-200"
+          className="w-full bg-green-600 text-white p-3 rounded mt-2 hover:bg-green-700 transition"
         >
           Upload
         </button>
