@@ -1,0 +1,36 @@
+{
+  "name": "scalable_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cosmos": "^4.3.0",
+    "@azure/storage-blob": "^12.27.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
+    "uuid": "^11.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Safeer1-ai/scalable_CW2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Safeer1-ai/scalable_CW2/issues"
+  },
+  "homepage": "https://github.com/Safeer1-ai/scalable_CW2#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
