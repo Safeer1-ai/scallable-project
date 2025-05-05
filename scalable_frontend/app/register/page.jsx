@@ -45,7 +45,7 @@ export default function RegisterPage() {
             <label className="block text-sm text-gray-700 mb-1">📧 Email</label>
             <input
               type="email"
-              placeholder="you@retro.com"
+              placeholder="you@gmail.com"
               required
               className="w-full p-3 rounded-lg bg-yellow-50 border border-gray-400 shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400"
               onChange={(e) => setForm({ ...form, email: e.target.value })}
