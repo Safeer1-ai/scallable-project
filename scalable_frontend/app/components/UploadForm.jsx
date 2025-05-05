@@ -27,7 +27,7 @@ export default function UploadForm() {
         throw new Error(errorData.error || 'Upload failed');
       }
 
-      alert("Upload successful!");
+      alert("✅ Upload successful!");
     } catch (error) {
       console.error("Upload error:", error.message);
       alert("Upload error: " + error.message);
@@ -35,27 +35,30 @@ export default function UploadForm() {
   };
 
   return (
-    <div className="mt-10">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Creator Upload</h2>
-      <div className="space-y-3">
+    <div className="bg-white max-w-2xl mx-auto mt-10 p-8 rounded-2xl shadow-md border border-gray-200 font-mono">
+      <h2 className="text-3xl font-bold text-indigo-700 mb-6 text-center">📤 Upload Your Media</h2>
+
+      <div className="space-y-4">
         <input
           type="file"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
-          className="block w-full p-2 border rounded"
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-yellow-50 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400"
         />
+
         {["title", "caption", "location", "people"].map(field => (
           <input
             key={field}
             placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-yellow-50 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onChange={e => setMeta({ ...meta, [field]: e.target.value })}
           />
         ))}
+
         <button
           onClick={handleUpload}
-          className="w-full bg-green-600 text-white p-3 rounded mt-2 hover:bg-green-700 transition"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition duration-200 shadow-lg"
         >
-          Upload
+          🚀 Upload
         </button>
       </div>
     </div>

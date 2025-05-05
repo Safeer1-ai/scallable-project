@@ -25,17 +25,17 @@ export default function CommentSection({ mediaId }) {
   };
 
   return (
-    <div className="mt-6">
-      <h4 className="text-lg font-semibold text-gray-800 mb-3">Comments</h4>
+    <div className="mt-6 font-mono">
+      <h4 className="text-lg font-bold text-indigo-700 mb-4">💬 Comments</h4>
 
       <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
         {comments.length === 0 ? (
-          <p className="text-gray-500 italic">No comments yet. Be the first!</p>
+          <p className="text-gray-500 italic">No comments yet. Be the first to say something!</p>
         ) : (
           comments.map((c, i) => (
             <div
               key={i}
-              className="bg-gray-100 border border-gray-200 rounded-xl p-3 text-sm text-gray-800"
+              className="bg-yellow-100 border border-yellow-300 rounded-xl p-3 text-sm text-gray-900 shadow-sm"
             >
               {c.text}
             </div>
@@ -43,16 +43,16 @@ export default function CommentSection({ mediaId }) {
         )}
       </div>
 
-      <div className="mt-4 flex items-center gap-3">
+      <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <input
           value={text}
           onChange={e => setText(e.target.value)}
-          placeholder="Write a comment..."
-          className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Type your comment here..."
+          className="flex-1 border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 bg-white shadow-inner"
         />
         <button
           onClick={postComment}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition duration-200"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-xl transition duration-200 shadow-md"
         >
           Post
         </button>

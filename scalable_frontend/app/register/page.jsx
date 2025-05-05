@@ -18,10 +18,9 @@ export default function RegisterPage() {
       });
 
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.error || 'Registration failed');
 
-      alert('Registered successfully');
+      alert('Registered successfully. Please login.');
       router.push('/login');
     } catch (err) {
       setError(err.message);
@@ -29,39 +28,45 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-md border border-gray-200">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Create Account</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-100 to-yellow-100 px-4 font-mono">
+      <div className="w-full max-w-md bg-white border-2 border-gray-300 p-8 rounded-2xl shadow-lg space-y-6">
+        <h1 className="text-3xl font-bold text-center text-pink-600 retro-shadow mb-2">
+          🎮 Register Account
+        </h1>
 
-        {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
+        {error && (
+          <p className="text-red-600 bg-red-100 border border-red-300 rounded p-2 text-sm text-center">
+            {error}
+          </p>
+        )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label className="block text-sm text-gray-700 mb-1">📧 Email</label>
             <input
               type="email"
-              placeholder="you@example.com"
+              placeholder="you@retro.com"
               required
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg bg-yellow-50 border border-gray-400 shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400"
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm text-gray-700 mb-1">🔑 Password</label>
             <input
               type="password"
               placeholder="••••••••"
               required
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg bg-yellow-50 border border-gray-400 shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400"
               onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+            <label className="block text-sm text-gray-700 mb-1">🧑 Role</label>
             <select
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg bg-yellow-50 border border-gray-400 shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400"
               onChange={(e) => setForm({ ...form, role: e.target.value })}
             >
               <option value="user">User</option>
@@ -71,11 +76,21 @@ export default function RegisterPage() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-200"
+            className="w-full bg-pink-600 text-white font-bold py-3 rounded-lg hover:bg-pink-700 transition"
           >
-            Register
+            📝 Register
           </button>
         </form>
+
+        <p className="text-sm text-gray-600 text-center mt-4">
+          Already have an account?{' '}
+          <button
+            onClick={() => router.push('/login')}
+            className="text-pink-600 font-semibold underline hover:text-pink-800"
+          >
+            Login here
+          </button>
+        </p>
       </div>
     </div>
   );
